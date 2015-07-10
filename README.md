@@ -33,7 +33,7 @@ Installation
 
 1. Download zip-file
 1. ```cd {redmine_root}/plugins```
-1 Expand the plugin into the plugins directory
+1. Expand the plugin into the plugins directory ( Name must be "redmine_actual_period" )
 1. ```cd {redmine_root}```
 1. ```bundle exec rake redmine:plugins:migrate NAME=redmine_actual_period RAILS_ENV=production```
 1. Restart Redmine
