@@ -1,0 +1,16 @@
+<tr>
+    <th class="original"><%=l(:field_actual_start)%>:</th>
+    <td class="original"><%= format_date(@issue.actual_start) %></td>
+    <th class="original"><%=l(:field_actual_end)%>:</th>
+    <td class="original"><%= format_date(@issue.actual_end) %></td>
+</tr>
+<tr>
+    <th class="original"><%=l(:field_original_start)%>:</th>
+    <td class="original"><%= format_date(@issue.original_start) %></td>
+    <th class="original"><%=l(:field_original_due)%>:</th>
+    <td class="original"><%= format_date(@issue.original_due) %></td>
+</tr>
+<tr>
+    <th class="original"><%=l(:field_original_hours)%>:</th>
+    <td class="original"><%=@issue.original_hours ? l_hours(@issue.original_hours) : nil %></td>
+</tr>

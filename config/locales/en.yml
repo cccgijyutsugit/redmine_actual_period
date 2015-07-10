@@ -1,0 +1,13 @@
+en:
+  field_include_in_calc: "Include in actual working period"
+  field_original_hours: "Estimated hours(first edition)"
+  field_original_start: "Start date(first edition)"
+  field_original_due: "Due date(first edition)"
+  field_actual_start: "Actual start date"
+  field_actual_end: "Actual end date"
+  field_edit_actualperiod: "Edit actual period"
+  activerecord:
+    errors:
+      messages:
+        greater_than_actual_start: "must be greater than start date"
+        greater_than_original_start: "must be greater than original start date"

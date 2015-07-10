@@ -1,0 +1,45 @@
+<% if @safe_attributes.include?('original_start') %>
+<p>
+  <label for='issue_original_start'><%= l(:field_original_start) %></label>
+  <%= text_field_tag 'issue[original_start]', '', :value => @issue_params[:original_start], :size => 10 %><%= calendar_for('issue_original_start') %>
+</p>
+<% end %>
+
+<% if @safe_attributes.include?('original_due') %>
+<p>
+  <label for='issue_original_due'><%= l(:field_original_due) %></label>
+  <%= text_field_tag 'issue[original_due]', '', :value => @issue_params[:original_due], :size => 10 %><%= calendar_for('issue_original_due') %>
+</p>
+<% end %>
+
+<% if @safe_attributes.include?('original_hours') %>
+<p>
+  <label for='issue_original_hours'><%= l(:field_original_hours) %></label>
+  <%= text_field_tag 'issue[original_hours]', '', :value => @issue_params[:original_hours], :size => 3 %><%= l(:field_hours) %>
+</p>
+<% end %>
+
+<% if @safe_attributes.include?('edit_actualperiod') %>
+<p>
+  <label for='issue_edit_actualperiod'><%= l(:field_edit_actualperiod) %></label>
+  <%= select_tag('issue[edit_actualperiod]', content_tag('option', l(:label_no_change_option), :value => '') +
+                                content_tag('option', l(:general_text_Yes), :value => '1', :selected => (@issue_params[:edit_actualperiod] == '1')) +
+                                content_tag('option', l(:general_text_No), :value => '0', :selected => (@issue_params[:edit_actualperiod] == '0'))) %>
+</p>
+<% end %>
+
+<% if @safe_attributes.include?('actual_start') %>
+<p>
+  <label for='issue_actual_start'><%= l(:field_actual_start) %></label>
+  <%= text_field_tag 'issue[actual_start]', '', :value => @issue_params[:actual_start], :size => 10 %><%= calendar_for('issue_actual_start') %>
+  <label class="inline"><%= check_box_tag 'issue[actual_start]', 'none', (@issue_params[:actual_start] == 'none'), :id => nil, :data => {:disables => '#issue_actual_start'} %><%= l(:button_clear) %></label>
+</p>
+<% end %>
+
+<% if @safe_attributes.include?('actual_end') %>
+<p>
+  <label for='issue_actual_end'><%= l(:field_actual_end) %></label>
+  <%= text_field_tag 'issue[actual_end]', '', :value => @issue_params[:actual_end], :size => 10 %><%= calendar_for('issue_actual_end') %>
+  <label class="inline"><%= check_box_tag 'issue[actual_end]', 'none', (@issue_params[:actual_end] == 'none'), :id => nil, :data => {:disables => '#issue_actual_end'} %><%= l(:button_clear) %></label>
+</p>
+<% end %>

@@ -1,0 +1,17 @@
+<%= error_messages_for 'enumeration' %>
+
+<div class="box tabular">
+  <p><%= f.text_field :name %></p>
+  <p><%= f.check_box :active %></p>
+  <p><%= f.check_box :is_default %></p>
+  <% if @enumeration.type.to_s == 'TimeEntryActivity'%>
+    <% if @enumeration.new_record? %>
+      <% @enumeration.include_in_calc = true %>
+    <% end %>
+    <p><%= f.check_box :include_in_calc %></p>
+  <% end %>
+
+  <% @enumeration.custom_field_values.each do |value| %>
+    <p><%= custom_field_tag_with_label :enumeration, value %></p>
+  <% end %>
+</div>

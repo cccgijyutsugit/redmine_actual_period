@@ -1,0 +1,47 @@
+<%= labelled_fields_for :issue, @issue do |f| %>
+<div id="actual_period_attributes" class="attributes">
+<div class="splitcontent">
+<div class="splitcontentleft">
+<% if @issue.safe_attribute? 'edit_actualperiod' %>
+  <% if respond_to?("update_issue_form_path") %>
+    <% ### this option doesn't work on redmine 2.6 ###%>
+    <p><%= f.check_box :edit_actualperiod, :onchange => "updateIssueFrom('#{escape_javascript update_issue_form_path(@project, @issue)}')"%></p>
+  <% elsif respond_to?("project_issue_form_path") %>
+    <p><%= f.check_box :edit_actualperiod, :onchange => "updateIssueFrom('#{escape_javascript project_issue_form_path(@project, :id => @issue, :format => 'js')}')" %></p>
+  <% else %>
+    <p><%= f.check_box :edit_actualperiod %></p>
+  <% end %>
+<% end %>
+<% if (@issue.safe_attribute? 'actual_start') && @issue.edit_actualperiod?%>
+  <p id="actual_start_area">
+    <%= f.text_field(:actual_start, :size => 10) %>
+    <%= calendar_for('issue_actual_start') %>
+  </p>
+<% end %>
+<% if (@issue.safe_attribute? 'actual_end') && @issue.edit_actualperiod?%>
+  <p id="actual_end_area">
+    <%= f.text_field(:actual_end, :size => 10) %>
+    <%= calendar_for('issue_actual_end') %>
+  </p>
+<% end %>
+</div>
+<div class="splitcontentright">
+<% if (@issue.safe_attribute? 'original_start') && (@issue.original_start || @issue.original_start_was) %>
+  <p id="original_start_area">
+    <%= f.text_field(:original_start, :size => 10, :required => true) %>
+    <%= calendar_for('issue_original_start') %>
+  </p>
+<% end %>
+<% if (@issue.safe_attribute? 'original_due') && (@issue.original_due || @issue.original_due_was) %>
+  <p id="original_due_area">
+    <%= f.text_field(:original_due, :size => 10, :required => true) %>
+    <%= calendar_for('issue_original_due') %>
+  </p>
+<% end %>
+<% if (@issue.safe_attribute? 'original_hours') && (@issue.original_hours || @issue.original_hours_was) %>
+  <p><%= f.text_field :original_hours, :size => 3, :required => true %> <%= l(:field_hours) %></p>
+<% end %>
+</div>
+</div>
+</div>
+<% end %>

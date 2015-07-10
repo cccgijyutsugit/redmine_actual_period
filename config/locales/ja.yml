@@ -1,0 +1,13 @@
+ja:
+  field_include_in_calc: "実績期間の算出に含める"
+  field_original_hours: "当初予定工数"
+  field_original_start: "当初予定開始日"
+  field_original_due: "当初予定期日"
+  field_actual_start: "実績開始日"
+  field_actual_end: "実績終了日"
+  field_edit_actualperiod: "実績期間は手入力する"
+  activerecord:
+    errors:
+      messages:
+        greater_than_actual_start: "を実績開始日より後にしてください。"
+        greater_than_original_start: "を当初予定開始日より後にしてください。"
